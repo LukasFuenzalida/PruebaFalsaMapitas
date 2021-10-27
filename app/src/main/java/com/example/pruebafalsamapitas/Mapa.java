@@ -24,7 +24,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
 
     Button BTN;
     EditText CajonLatitud,CajonLonjitud, CajonTitulo;
-    String origen, destino;
+    String origen, destino,fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
         Bundle b = getIntent().getExtras();
         origen = b.getString("SOrigen");
         destino = b.getString("SDestino");
+        fecha = b.getString("SDate");
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -58,6 +59,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
                 Intent I = new Intent(getApplicationContext(),Indique.class);
                 I.putExtra("SOrigen", origen);
                 I.putExtra("SDestino", destino);
+                I.putExtra("SDate", fecha);
                 I.putExtra("Slat", riallat);
                 I.putExtra("Slot", riallot);
                 startActivity(I);

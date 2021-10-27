@@ -17,7 +17,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Spinner origen, destino;
     Button res;
-    EditText fechasa;
+    EditText DATE;
+    //EditText fechasa;
     ArrayList<String> valores= new ArrayList<>();
 
     @Override
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         origen = (Spinner) findViewById(R.id.sp_origen);
         destino = (Spinner) findViewById(R.id.sp_destino);
-        fechasa = (EditText) findViewById(R.id.txt_fecha);
+        DATE = (EditText) findViewById(R.id.date);
+        //fechasa = (EditText) findViewById(R.id.txt_fechas);
         res = (Button) findViewById(R.id.btn_reservar);
 
         valores.add(".....");
@@ -49,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 String or = origen.getSelectedItem().toString();
                 String des = destino.getSelectedItem().toString();
+                String da = DATE.getText().toString();
                 Intent I = new Intent(getApplicationContext(),Indique.class);
                 I.putExtra("SOrigen", or);
                 I.putExtra("SDestino", des);
+                I.putExtra("SDate",da);
                 startActivity(I);
             }
         });
